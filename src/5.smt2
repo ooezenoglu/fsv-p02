@@ -1,9 +1,10 @@
 (set-logic ALL)
 (set-option :produce-models true)
 
-(define-fun
-    isPalindrome ((a (Array Int Int)) (l Int) (r Int)) Bool
-    true ; TODO
+(define-fun isPalindrome ((a (Array Int Int)) (l Int) (r Int)) Bool
+    (forall ((i Int)) 
+        (=> (and (>= i l) (< i r))
+            (= (select a i) (select a (- (+ r l) 1 i)))))
 )
 
 
