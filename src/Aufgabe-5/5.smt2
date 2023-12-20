@@ -2,9 +2,16 @@
 (set-option :produce-models true)
 
 (define-fun isPalindrome ((a (Array Int Int)) (l Int) (r Int)) Bool
-    (forall ((i Int)) 
-        (=> (and (>= i l) (< i r))
-            (= (select a i) (select a (- (+ r l) 1 i)))))
+
+; Diese 'forall'-Schleife überprüft, ob das Array 'a' zwischen den Indizes 'l' und 'r' ein Palindrom ist.
+; 'i' durchläuft jeden Index im Array zwischen 'l' und 'r'.
+; Für jeden Index 'i', wenn 'i' innerhalb des Bereichs ['l', 'r') ist überprüfen wir die Gleichheit
+; Das Element bei 'i' (select a i) und das entsprechende Element am gegenüberliegenden Ende des Bereichs 
+; (select a (- (+ r l) 1 i)) müssen gleich sein damit die Bedingung eines Palindroms erfüllt ist
+(forall ((i Int)) 
+    (=> (and (>= i l) (< i r))
+        (= (select a i) (select a (- (+ r l) 1 i)))))
+
 )
 
 
