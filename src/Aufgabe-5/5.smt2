@@ -1,4 +1,5 @@
 (set-logic ALL)
+(set-option :produce-models true)
 
 (define-fun
     isPalindrome ((a (Array Int Int)) (l Int) (r Int)) Bool
