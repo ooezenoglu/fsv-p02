@@ -10,5 +10,4 @@
 (assert (not(=> (and A B) (or (not (=> C A)) (=> B A)))))
 
 (check-sat)
-(get-model)
 ; unsat -> allgemeingültig 
