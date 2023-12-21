@@ -1,12 +1,13 @@
+; 3b-tautology.smt2
 (set-logic ALL)
 
 (declare-const A Bool)
 (declare-const B Bool)
 (declare-const C Bool)
 
-(assert (not (=> (and A B)
-                 (or (not (=> C A)) (=> B A)))))
+; (A ∧ B) => ((¬(C => A)) ∨ (B => A))
+; Überprüfen die Allgemeingültigkeit mit der gleichen Logik wie in der a)
+(assert (not(=> (and A B) (or (not (=> C A)) (=> B A)))))
 
 (check-sat)
-
-; Ergebnis: Die Negation der Formel 3b ist unsat, demnach ist 3b Tautologie
+; unsat -> allgemeingültig

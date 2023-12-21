@@ -1,11 +1,12 @@
+; 3b-satisfiable.smt2
 (set-logic ALL)
 
 (declare-const A Bool)
 (declare-const B Bool)
 (declare-const C Bool)
 
-(assert (=> (and A B)
-            (or (not (=> C A)) (=> B A))))
+; (A ∧ B) => ((¬(C => A)) ∨ (B => A))
+(assert (=> (and A B) (or (not (=> C A)) (=> B A))))
 
 (check-sat)
 (get-model)
