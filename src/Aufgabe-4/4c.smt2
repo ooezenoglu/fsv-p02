@@ -1,7 +1,5 @@
 (set-logic ALL)
 
-(set-option :produce-models true)
-
 ; Kodierung:
 ; alex: Alex ist Ritter, ~alex: Alex ist Schurke
 ; chris: Chris ist Ritter, ~chris: Chris ist Schurke
