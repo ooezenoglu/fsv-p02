@@ -3,7 +3,12 @@
 
 (define-fun
     isPalindrome ((a (Array Int Int)) (l Int) (r Int)) Bool
-    true ; TODO
+    
+        (forall ((i Int))
+            ; i ist ein Index um durch das Array zu iterieren (0 <= i < a.length).
+            (=> (and (>= i 0) (< i (- r l)))
+                ; Prüfe Gleichheit der Werte von außen nach innen.
+                (= (select a (+ l i)) (select a (- r 1 i)))))
 )
 
 
